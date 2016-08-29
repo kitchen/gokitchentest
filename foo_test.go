@@ -1,9 +1,12 @@
 package main
 
-import "encoding/binary"
-import "testing"
-import "bytes"
-import "github.com/stretchr/testify/assert"
+import (
+	"bytes"
+	"encoding/binary"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestUIntBytesThing(t *testing.T) {
 	buf := new(bytes.Buffer)
