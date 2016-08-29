@@ -1,5 +1,6 @@
 package main
 
+// the basic jist of this test is for me to figure out some things I can and can't do with maps
 import (
 	"fmt"
 	"testing"
@@ -12,11 +13,14 @@ type Foo struct {
 	Number  int
 }
 
+// this is me knowing if I can `len()` an empty map, and what happens if I
+// attempt to `range` an empty map.
 func TestEmptyMap(t *testing.T) {
 	foo := Foo{}
 
 	length := len(foo.HashMap)
 	assert.Equal(t, 0, length, "HashMap is empty")
+
 	for k, v := range foo.HashMap {
 		assert.Fail(t, fmt.Sprintf("we should not have gotten here: k: %s, v: %s", k, v))
 	}
