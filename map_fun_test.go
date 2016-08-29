@@ -26,6 +26,7 @@ func TestEmptyMap(t *testing.T) {
 	}
 }
 
+// this is just testing normal bits of a map, and access from outside of the ... thing
 func TestMapWithStuff(t *testing.T) {
 	foo := Foo{}
 	foo.HashMap = make(map[string]string)
