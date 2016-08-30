@@ -38,3 +38,21 @@ func TestMapWithStuff(t *testing.T) {
 		assert.Equal(t, "baz", v, "value should be baz")
 	}
 }
+
+func TestMapLiteral(t *testing.T) {
+	foo := Foo{}
+	foo.HashMap = map[string]string{
+		"bar": "baz",
+	}
+	length := len(foo.HashMap)
+	assert.Equal(t, 1, length, "HashMap should have one key/value pair")
+	for k, v := range foo.HashMap {
+		assert.Equal(t, "bar", k, "key should be bar")
+		assert.Equal(t, "baz", v, "value should be baz")
+	}
+}
+
+func TestEmptyMapLiteral(t *testing.T) {
+	foo := map[string]string{}
+	assert.Equal(t, 0, len(foo), "empty map")
+}

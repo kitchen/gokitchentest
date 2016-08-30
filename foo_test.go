@@ -8,6 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// how do I write out a uint32 as a big endian byte string?
 func TestUIntBytesThing(t *testing.T) {
 	buf := new(bytes.Buffer)
 	fooslice := make([]byte, 4)
