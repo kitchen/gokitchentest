@@ -18,3 +18,15 @@ func TestEmptyByteSlice(t *testing.T) {
 
 	assert.NotNil(t, bytes, "a non-empty byte slice is not nil")
 }
+
+type EmptyByteSliceThing struct {
+	ByteSlice []byte
+}
+
+func TestStructedByteSlice(t *testing.T) {
+	foo := EmptyByteSliceThing{}
+	assert.Nil(t, foo.ByteSlice, "it hasn't been initialized yet, so it should be nil")
+
+	foo.ByteSlice = make([]byte, 16)
+	assert.NotNil(t, foo.ByteSlice, "it has been initialized, so it shouldn't be nil")
+}
