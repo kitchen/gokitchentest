@@ -30,3 +30,25 @@ func TestStructedByteSlice(t *testing.T) {
 	foo.ByteSlice = make([]byte, 16)
 	assert.NotNil(t, foo.ByteSlice, "it has been initialized, so it shouldn't be nil")
 }
+
+// func TestMapByteSliceByteSlice(t *testing.T) {
+// 	foo := map[[]byte][]byte{
+// 		[]byte("foo"): []byte("bar"),
+// 	}
+//
+// 	assert.True(t, true, "this doesn't work")
+// }
+
+// WIARTTD: map[[]byte][]byte
+func TestSliceOfSlicesOfByteSlices(t *testing.T) {
+	foo := [][][]byte{
+		[][]byte{
+			[]byte("foo"), []byte("bar"),
+		},
+		[][]byte{
+			[]byte("foo1"), []byte("bar1"),
+		},
+	}
+	assert.NotNil(t, foo, "it's not nil!")
+	assert.True(t, true, "this works!")
+}
