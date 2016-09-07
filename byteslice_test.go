@@ -52,3 +52,38 @@ func TestSliceOfSlicesOfByteSlices(t *testing.T) {
 	assert.NotNil(t, foo, "it's not nil!")
 	assert.True(t, true, "this works!")
 }
+
+func TestSliceSlice(t *testing.T) {
+	foo := make([]byte, 1200)
+	total := 0
+
+	for {
+		if len(foo) == 0 {
+			break
+		}
+		cur := foo[:100]
+		foo = foo[100:]
+		total += len(cur)
+	}
+
+	assert.Equal(t, 1200, total, "we should have chunked 1200 bytes off")
+
+	foo = make([]byte, 0, 10)
+	foo = append(foo, []byte("abcde12345")...)
+
+	chunksize := 3
+	for {
+		if len(foo) == 0 {
+			break
+		}
+
+		if chunksize > len(foo) {
+			chunksize = len(foo)
+		}
+
+		cur := foo[:chunksize]
+		foo = foo[chunksize:]
+		t.Logf("cur: %s, foo: %s", string(cur), string(foo))
+	}
+
+}
