@@ -72,11 +72,7 @@ func TestSliceSlice(t *testing.T) {
 	foo = append(foo, []byte("abcde12345")...)
 
 	chunksize := 3
-	for {
-		if len(foo) == 0 {
-			break
-		}
-
+	for len(foo) != 0 {
 		if chunksize > len(foo) {
 			chunksize = len(foo)
 		}
