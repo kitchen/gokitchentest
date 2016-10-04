@@ -56,3 +56,15 @@ func TestEmptyMapLiteral(t *testing.T) {
 	foo := map[string]string{}
 	assert.Equal(t, 0, len(foo), "empty map")
 }
+
+func TestMapKeyTruthiness(t *testing.T) {
+	foo := map[string]string{"bar": "baz"}
+
+	if _, ok := foo["bar"]; ok {
+		assert.True(t, true, "yep")
+	}
+
+	if _, ok := foo["baz"]; ok {
+		assert.Fail(t, "non-existent key is false!")
+	}
+}
